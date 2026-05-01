@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="90" fill="#1e293b" stroke="#f97316" stroke-width="5"/>
+
+  <!-- Cycle wheel spokes -->
+  <circle cx="100" cy="100" r="55" stroke="#f97316" stroke-width="3" stroke-dasharray="8 6" opacity="0.5"/>
+  <circle cx="100" cy="100" r="14" fill="#f97316"/>
+  <line x1="100" y1="45" x2="100" y2="155" stroke="#f97316" stroke-width="2.5" opacity="0.6"/>
+  <line x1="45" y1="100" x2="155" y2="100" stroke="#f97316" stroke-width="2.5" opacity="0.6"/>
+  <line x1="61" y1="61" x2="139" y2="139" stroke="#f97316" stroke-width="2.5" opacity="0.6"/>
+  <line x1="139" y1="61" x2="61" y2="139" stroke="#f97316" stroke-width="2.5" opacity="0.6"/>
+
+  <!-- Sewing needle overlay -->
+  <line x1="115" y1="72" x2="85" y2="128" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="115" cy="70" rx="5" ry="8" fill="white" transform="rotate(-30 115 70)"/>
+  <ellipse cx="115" cy="70" rx="2" ry="3.5" fill="#1e293b" transform="rotate(-30 115 70)"/>
+  <!-- Thread curve -->
+  <path d="M85 128 Q70 148 90 155" stroke="#fb923c" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Letter U in center -->
+  <text x="100" y="107" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="white">U</text>
+</svg>
