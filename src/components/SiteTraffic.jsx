@@ -4,9 +4,15 @@ import { MdPeople, MdTrendingUp, MdVisibility } from 'react-icons/md';
 
 const fadeUp = { hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
 
+const BASE = 'https://api.counterapi.dev/v1/usha-agency';
+
 function formatNumber(n) {
   if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
-  return n.toString();
+  return n?.toString() ?? '—';
+}
+
+function getTodayKey() {
+  return new Date().toISOString().slice(0, 10);
 }
 
 export default function SiteTraffic() {
@@ -15,17 +21,26 @@ export default function SiteTraffic() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const todayKey = getTodayKey();
+    const storageKey = `usha-visited-${todayKey}`;
+    const alreadyVisited = sessionStorage.getItem(storageKey);
+
+    const totalUrl = alreadyVisited
+      ? `${BASE}/total-visits/get`
+      : `${BASE}/total-visits/up`;
+
+    const todayUrl = alreadyVisited
+      ? `${BASE}/visits-${todayKey}/get`
+      : `${BASE}/visits-${todayKey}/up`;
 
     Promise.all([
-      // Increment + get total visits
-      fetch('https://api.countapi.xyz/hit/usha-agency.in/total-visits').then(r => r.json()),
-      // Increment + get today's visits using date as key
-      fetch(`https://api.countapi.xyz/hit/usha-agency.in/visits-${today}`).then(r => r.json()),
+      fetch(totalUrl).then(r => r.json()),
+      fetch(todayUrl).then(r => r.json()),
     ])
-      .then(([total, daily]) => {
-        setTotalVisits(total.value);
-        setTodayVisits(daily.value);
+      .then(([total, today]) => {
+        setTotalVisits(total.count);
+        setTodayVisits(today.count);
+        sessionStorage.setItem(storageKey, '1');
       })
       .catch(() => {
         setTotalVisits('—');
@@ -35,21 +50,9 @@ export default function SiteTraffic() {
   }, []);
 
   const stats = [
-    {
-      icon: <MdPeople className="text-3xl text-orange-400" />,
-      label: 'Total Visitors',
-      value: loading ? '...' : formatNumber(totalVisits),
-    },
-    {
-      icon: <MdVisibility className="text-3xl text-orange-400" />,
-      label: "Today's Visitors",
-      value: loading ? '...' : formatNumber(todayVisits),
-    },
-    {
-      icon: <MdTrendingUp className="text-3xl text-orange-400" />,
-      label: 'Live Now',
-      value: '1',
-    },
+    { icon: <MdPeople className="text-3xl text-orange-400" />, label: 'Total Visitors', value: loading ? '...' : formatNumber(totalVisits) },
+    { icon: <MdVisibility className="text-3xl text-orange-400" />, label: "Today's Visitors", value: loading ? '...' : formatNumber(todayVisits) },
+    { icon: <MdTrendingUp className="text-3xl text-orange-400" />, label: 'You are Visitor #', value: loading ? '...' : formatNumber(totalVisits) },
   ];
 
   return (
@@ -76,7 +79,7 @@ export default function SiteTraffic() {
             </motion.div>
           ))}
         </div>
-        <p className="text-center text-gray-600 text-xs mt-6">Powered by CountAPI · Updates on every page visit</p>
+        <p className="text-center text-gray-600 text-xs mt-6">Powered by CounterAPI · Updates on every unique visit</p>
       </div>
     </section>
   );
