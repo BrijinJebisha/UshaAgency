@@ -50,13 +50,13 @@ export default function SiteTraffic() {
   }, []);
 
   const stats = [
-    { icon: <MdPeople className="text-3xl text-orange-400" />, label: 'Total Visitors', value: loading ? '...' : formatNumber(totalVisits) },
-    { icon: <MdVisibility className="text-3xl text-orange-400" />, label: "Today's Visitors", value: loading ? '...' : formatNumber(todayVisits) },
-    { icon: <MdTrendingUp className="text-3xl text-orange-400" />, label: 'You are Visitor #', value: loading ? '...' : formatNumber(totalVisits) },
+    { icon: <MdPeople className="text-3xl text-yellow-500" />, label: 'Total Visitors', value: loading ? '...' : formatNumber(totalVisits) },
+    { icon: <MdVisibility className="text-3xl text-yellow-500" />, label: "Today's Visitors", value: loading ? '...' : formatNumber(todayVisits) },
+    { icon: <MdTrendingUp className="text-3xl text-yellow-500" />, label: 'You are Visitor #', value: loading ? '...' : formatNumber(totalVisits) },
   ];
 
   return (
-    <section className="py-16 bg-slate-800">
+    <section className="py-16 section-darker border-y border-yellow-900/20">
       <div className="max-w-4xl mx-auto px-4">
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white mb-2">Site Traffic</h2>
@@ -71,10 +71,10 @@ export default function SiteTraffic() {
               whileInView="show"
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors"
+              className="card-premium rounded-2xl p-6 text-center"
             >
               <div className="flex justify-center mb-3">{icon}</div>
-              <div className="text-4xl font-bold text-white mb-1">{value}</div>
+              <div className="text-4xl font-bold gold-text mb-1">{value}</div>
               <div className="text-gray-400 text-sm">{label}</div>
             </motion.div>
           ))}

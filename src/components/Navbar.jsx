@@ -28,24 +28,24 @@ export default function Navbar() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur shadow-lg' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Usha Agency Logo" className="w-10 h-10" />
-          <span className="text-white font-bold text-xl tracking-wide">Usha <span className="text-orange-400">Agency</span></span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-[0_4px_30px_rgba(212,160,23,0.1)] border-b border-yellow-900/30' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18 py-3">
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="Usha Agency Logo" className="w-11 h-11" />
+          <span className="font-bold text-xl tracking-widest text-white">USHA <span className="gold-text">AGENCY</span></span>
         </Link>
 
         <ul className="hidden lg:flex items-center gap-1">
           {links.map(l => (
             <li key={l.to}>
-              <Link to={l.to} className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${pathname === l.to ? 'text-orange-400 bg-white/10' : 'text-gray-200 hover:text-orange-400 hover:bg-white/10'}`}>
+              <Link to={l.to} className={`px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${pathname === l.to ? 'gold-text border-b border-yellow-600' : 'text-gray-400 hover:text-yellow-400'}`}>
                 {l.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        <button onClick={() => setOpen(o => !o)} className="lg:hidden text-white text-2xl p-1">
+        <button onClick={() => setOpen(o => !o)} className="lg:hidden text-yellow-500 text-2xl p-1">
           {open ? <HiX /> : <HiMenuAlt3 />}
         </button>
       </div>
@@ -53,9 +53,9 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
-            className="lg:hidden bg-slate-900/98 backdrop-blur border-t border-white/10 px-4 pb-4">
+            className="lg:hidden bg-black/98 backdrop-blur border-t border-yellow-900/30 px-6 pb-4">
             {links.map(l => (
-              <Link key={l.to} to={l.to} className={`block py-3 text-sm font-medium border-b border-white/5 ${pathname === l.to ? 'text-orange-400' : 'text-gray-200'}`}>
+              <Link key={l.to} to={l.to} className={`block py-3 text-sm font-medium tracking-wide border-b border-yellow-900/20 ${pathname === l.to ? 'text-yellow-400' : 'text-gray-400'}`}>
                 {l.label}
               </Link>
             ))}

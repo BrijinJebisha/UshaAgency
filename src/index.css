@@ -3,15 +3,63 @@
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', system-ui, sans-serif; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #e5e5e5; }
   h1, h2, h3 { font-family: 'Playfair Display', serif; }
 }
 
 @layer utilities {
-  .text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-  .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-  .gradient-hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); }
-  .gradient-maroon { background: linear-gradient(135deg, #4a0e0e 0%, #7b1d1d 100%); }
-  .gradient-cream { background: linear-gradient(135deg, #fdf6ec 0%, #f5e6d3 100%); }
+  .text-shadow { text-shadow: 0 2px 12px rgba(0,0,0,0.7); }
+
+  .gradient-hero {
+    background: radial-gradient(ellipse at 20% 50%, #1a1200 0%, #0a0a0a 60%),
+                radial-gradient(ellipse at 80% 20%, #1a0f00 0%, transparent 60%);
+    background-color: #0a0a0a;
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #b8860b 0%, #d4a017 40%, #f5c842 70%, #d4a017 100%);
+  }
+
+  .gradient-maroon {
+    background: linear-gradient(135deg, #1a0a00 0%, #2d1200 100%);
+  }
+
+  .gradient-cream {
+    background: linear-gradient(135deg, #0f0d08 0%, #1a1508 100%);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #b8860b, #f5c842, #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-border {
+    border: 1px solid rgba(212, 160, 23, 0.3);
+  }
+
+  .card-premium {
+    background: linear-gradient(145deg, #111111, #1a1a1a);
+    border: 1px solid rgba(212, 160, 23, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .card-premium:hover {
+    border-color: rgba(212, 160, 23, 0.5);
+    box-shadow: 0 20px 60px rgba(212, 160, 23, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .section-dark {
+    background: #0a0a0a;
+  }
+
+  .section-darker {
+    background: #060606;
+  }
+
+  .section-card {
+    background: #111111;
+  }
 }
