@@ -42,7 +42,7 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4 text-base">Contact Us</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex gap-3 items-start"><FaMapMarkerAlt className="text-orange-400 mt-0.5 shrink-0" /><span>123 Main Bazaar Road, Town Center, City – 600001</span></li>
+            <li className="flex gap-3 items-start"><FaMapMarkerAlt className="text-orange-400 mt-0.5 shrink-0" /><span>Usha Agency, Choozhal, KK dist, Tamil Nadu – 629153</span></li>
             <li className="flex gap-3 items-center"><FaPhone className="text-orange-400 shrink-0" /><a href="tel:+919876543210" className="hover:text-orange-400">+91 98765 43210</a></li>
             <li className="flex gap-3 items-center"><FaEnvelope className="text-orange-400 shrink-0" /><a href="mailto:info@ushaagency.com" className="hover:text-orange-400">info@ushaagency.com</a></li>
             <li className="flex gap-3 items-center"><FaWhatsapp className="text-green-400 shrink-0" /><a href="https://wa.me/918675108599" className="hover:text-green-400">WhatsApp Us</a></li>

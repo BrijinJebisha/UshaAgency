@@ -24,10 +24,10 @@ export default function Contact() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Store Information</h2>
             <div className="space-y-5">
               {[
-                { icon: <FaMapMarkerAlt className="text-orange-500 text-xl mt-0.5 shrink-0" />, label: 'Address', value: '123 Main Bazaar Road, Town Center, City – 600001' },
+                { icon: <FaMapMarkerAlt className="text-orange-500 text-xl mt-0.5 shrink-0" />, label: 'Address', value: 'Usha Agency, Choozhal, KK dist, Tamil Nadu – 629153' },
                 { icon: <FaPhone className="text-orange-500 text-xl shrink-0" />, label: 'Phone', value: '+91 98765 43210', href: 'tel:+919876543210' },
                 { icon: <FaEnvelope className="text-orange-500 text-xl shrink-0" />, label: 'Email', value: 'info@ushaagency.com', href: 'mailto:info@ushaagency.com' },
-                { icon: <FaClock className="text-orange-500 text-xl shrink-0" />, label: 'Hours', value: 'Mon–Sat: 9:00 AM – 8:00 PM | Sun: 10:00 AM – 5:00 PM' },
+                { icon: <FaClock className="text-orange-500 text-xl shrink-0" />, label: 'Hours', value: 'Mon–Sat: 9:30 AM – 8:00 PM' },
               ].map(({ icon, label, value, href }) => (
                 <div key={label} className="flex gap-4 items-start bg-gray-50 rounded-xl p-4">
                   {icon}
@@ -46,14 +46,26 @@ export default function Contact() {
               Chat on WhatsApp
             </a>
 
-            {/* Map Placeholder */}
-            <div className="mt-8 rounded-2xl overflow-hidden bg-gray-200 h-52 flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <FaMapMarkerAlt className="text-4xl mx-auto mb-2 text-orange-400" />
-                <p className="font-medium">Usha Agency</p>
-                <p className="text-sm">123 Main Bazaar Road, City</p>
-              </div>
+            {/* Google Maps */}
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-lg">
+              <iframe
+                title="Usha Agency Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d820!2d77.1286366!3d8.3134713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05aa4bb52c22b3%3A0x1be0bfcd7a7301a7!2sUsha+Agency+Choozhal!5e0!3m2!1sen!2sin!4v1"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
+            <a
+              href="https://maps.app.goo.gl/PwD7Vbrk3U7b5XtF9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 text-sm font-medium transition-colors">
+              <FaMapMarkerAlt /> Open in Google Maps
+            </a>
           </motion.div>
 
           {/* Form */}

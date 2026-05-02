@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaBicycle, FaCut } from 'react-icons/fa';
-import { GiSewingMachine } from 'react-icons/gi';
+import { GiSewingMachine, GiSewingString } from 'react-icons/gi';
 import { MdVerified, MdLocalShipping, MdSupportAgent } from 'react-icons/md';
 import CategoryCard from '../components/CategoryCard';
-import ProductCard from '../components/ProductCard';
 import TestimonialCard from '../components/TestimonialCard';
 import FAQSection from '../components/FAQSection';
 import SiteTraffic from '../components/SiteTraffic';
@@ -37,8 +36,6 @@ function Counter({ target, suffix = '' }) {
 }
 
 export default function Home() {
-  const featured = [...cycles.slice(0, 2), ...sewingMachines.slice(0, 2), ...stitchingItems.slice(0, 2)];
-
   return (
     <>
       {/* Hero */}
@@ -103,17 +100,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products */}
+      {/* What We Stock */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-3">Featured Products</h2>
-            <p className="text-gray-500">Handpicked bestsellers from our collection</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">What We Stock</h2>
+            <p className="text-gray-500">A quick overview of everything available at Usha Agency</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featured.map((p, i) => (
-              <motion.div key={p.id + i} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                <ProductCard product={p} />
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { img: cycles[0].img, title: 'Cycles', items: ['Mountain & Gear Cycles', 'Kids & Ladies Cycles', 'Road Bikes', 'Spare Parts'] },
+              { img: sewingMachines[0].img, title: 'Sewing Machines', items: ['Manual Machines', 'Electric Machines', 'Industrial Machines', 'Overlock Machines'] },
+              { img: stitchingItems[0].img, title: 'Stitching Materials', items: ['Threads & Beads', 'Lining Clothes', 'Needles & Pins', 'Tailoring Accessories'] },
+            ].map(({ img, title, items }, i) => (
+              <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <img src={img} alt={title} className="w-full h-44 object-cover" />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">{title}</h3>
+                  <ul className="space-y-2">
+                    {items.map(item => (
+                      <li key={item} className="flex items-center gap-2 text-gray-500 text-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </div>
