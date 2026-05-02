@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/logo.svg';
+import logo from '../logo/UshaLogo.png';
 
 const links = [
   { to: '/', label: 'Home' },
@@ -31,8 +31,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-[0_4px_30px_rgba(212,160,23,0.1)] border-b border-yellow-900/30' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18 py-3">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Usha Agency Logo" className="w-11 h-11" />
-          <span className="font-bold text-xl tracking-widest text-white">USHA <span className="gold-text">AGENCY</span></span>
+          <img src={logo} alt="Usha Agency Logo" className="h-32 w-auto" />
         </Link>
 
         <ul className="hidden lg:flex items-center gap-1">

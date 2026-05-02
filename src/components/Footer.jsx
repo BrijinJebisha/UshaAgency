@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import logo from '../assets/logo.svg';
+import logo from '../logo/UshaLogo.png';
 
 export default function Footer() {
   return (
@@ -8,8 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-3 mb-5">
-            <img src={logo} alt="Usha Agency Logo" className="w-11 h-11" />
-            <span className="text-white font-bold text-xl tracking-widest">USHA <span className="gold-text">AGENCY</span></span>
+            <img src={logo} alt="Usha Agency Logo" className="h-32 w-auto" />
           </div>
           <p className="text-sm leading-relaxed text-gray-500">Your trusted destination for cycles, sewing machines, and all stitching essentials since 1995.</p>
           <div className="flex gap-3 mt-6">
