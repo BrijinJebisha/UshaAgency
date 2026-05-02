@@ -16,29 +16,34 @@ const categories = [
 export default function Cycles() {
   return (
     <>
-      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 pt-28 pb-16 text-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="gradient-hero pt-28 pb-16 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_60%,rgba(212,160,23,0.07)_0%,transparent_60%)]" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Our Collection</span>
-            <h1 className="text-5xl font-bold mt-2 mb-4">Cycles & <span className="text-orange-400">Spare Parts</span></h1>
-            <p className="text-gray-300 max-w-xl text-lg">From mountain trails to city streets — find the perfect ride for every age and purpose.</p>
+            <span className="text-yellow-600 text-xs font-semibold uppercase tracking-widest">Our Collection</span>
+            <h1 className="text-5xl font-bold mt-3 mb-4">Cycles & <span className="gold-text">Spare Parts</span></h1>
+            <p className="text-gray-400 max-w-xl text-lg">From mountain trails to city streets — find the perfect ride for every age and purpose.</p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">What We Offer</h2>
+      <section className="py-20 section-darker">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-14">
+            <p className="text-yellow-600 text-xs font-semibold uppercase tracking-widest mb-3">What We Offer</p>
+            <h2 className="text-3xl font-bold text-white mb-3">Our Cycle Range</h2>
             <p className="text-gray-500 max-w-xl mx-auto">We stock a wide range of cycles for every rider — from kids to professionals.</p>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map(({ img, title, desc }, i) => (
               <motion.div key={title} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <img src={img} alt={title} className="w-full h-44 object-cover" />
+                className="card-premium rounded-2xl overflow-hidden">
+                <div className="relative overflow-hidden h-48">
+                  <img src={img} alt={title} className="w-full h-full object-cover opacity-75 hover:opacity-100 hover:scale-105 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
                 <div className="p-5">
-                  <h3 className="text-lg font-bold text-gray-800 mb-1">{title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-1">{title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </motion.div>
@@ -47,31 +52,32 @@ export default function Cycles() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-10">Why Buy Cycles From Us?</h2>
+      <section className="py-16 section-dark border-y border-yellow-900/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-white mb-10">Why Buy Cycles From Us?</h2>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             {[['In-Store Servicing', 'We repair and service all types of cycles on-site.'],
               ['Warranty Assured', 'All cycles come with manufacturer warranty.'],
               ['Home Delivery', 'Quick delivery within the city for all orders.'],
               ['Best Prices', 'Competitive pricing with no hidden charges.']
             ].map(([label, desc]) => (
-              <div key={label} className="bg-white/5 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-                <p className="font-semibold text-orange-400 mb-2">{label}</p>
-                <p className="text-gray-400 text-sm">{desc}</p>
+              <div key={label} className="card-premium rounded-2xl p-6">
+                <p className="font-semibold text-yellow-500 mb-2">{label}</p>
+                <p className="text-gray-500 text-sm">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-14 bg-orange-500 text-white text-center">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Interested in a Cycle?</h2>
-          <p className="text-orange-100 mb-6">Visit our store or reach out to us for availability, pricing and test rides.</p>
+      <section className="py-16 section-darker relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,160,23,0.06)_0%,transparent_70%)]" />
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="max-w-2xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl font-bold text-white mb-4">Interested in a Cycle?</h2>
+          <p className="text-gray-400 mb-8">Visit our store or reach out to us for availability, pricing and test rides.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="bg-white text-orange-600 font-bold px-8 py-3 rounded-xl hover:bg-orange-50 transition-colors">Contact Us</Link>
-            <a href="https://wa.me/918675108599" className="border-2 border-white text-white font-bold px-8 py-3 rounded-xl hover:bg-white/10 transition-colors">WhatsApp Us</a>
+            <Link to="/contact" className="gradient-gold text-black font-bold px-8 py-3 rounded-xl hover:opacity-90 transition-all shadow-[0_4px_20px_rgba(212,160,23,0.3)]">Contact Us</Link>
+            <a href="https://wa.me/918675108599" className="border border-yellow-700/50 hover:border-yellow-500 text-gray-300 hover:text-yellow-400 font-semibold px-8 py-3 rounded-xl transition-all">WhatsApp Us</a>
           </div>
         </motion.div>
       </section>

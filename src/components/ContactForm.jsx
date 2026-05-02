@@ -8,14 +8,14 @@ export default function ContactForm() {
   const submit = e => { e.preventDefault(); setSent(true); };
 
   if (sent) return (
-    <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-      <div className="text-4xl mb-3">✅</div>
-      <h3 className="text-lg font-semibold text-green-800">Message Sent!</h3>
-      <p className="text-green-600 text-sm mt-1">We'll get back to you within 24 hours.</p>
+    <div className="card-premium border border-yellow-900/30 rounded-2xl p-10 text-center">
+      <div className="w-14 h-14 rounded-full gradient-gold flex items-center justify-center text-black text-2xl font-bold mx-auto mb-4">✓</div>
+      <h3 className="text-lg font-semibold text-white mb-1">Message Sent!</h3>
+      <p className="text-gray-500 text-sm">We'll get back to you within 24 hours.</p>
     </div>
   );
 
-  const inputCls = "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 transition";
+  const inputCls = "w-full bg-black/40 border border-yellow-900/30 focus:border-yellow-600 rounded-xl px-4 py-3 text-sm text-gray-300 placeholder-gray-600 focus:outline-none transition-colors";
 
   return (
     <form onSubmit={submit} className="space-y-4">
@@ -24,8 +24,8 @@ export default function ContactForm() {
         <input name="email" type="email" value={form.email} onChange={handle} placeholder="Email Address" required className={inputCls} />
       </div>
       <input name="phone" value={form.phone} onChange={handle} placeholder="Phone Number" className={inputCls} />
-      <textarea name="message" value={form.message} onChange={handle} placeholder="Your Message" rows={4} required className={inputCls + ' resize-none'} />
-      <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-xl transition-colors">
+      <textarea name="message" value={form.message} onChange={handle} placeholder="Your Message" rows={5} required className={inputCls + ' resize-none'} />
+      <button type="submit" className="w-full gradient-gold text-black font-bold py-3.5 rounded-xl hover:opacity-90 transition-all shadow-[0_4px_20px_rgba(212,160,23,0.25)]">
         Send Message
       </button>
     </form>
